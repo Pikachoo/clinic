@@ -1,0 +1,20 @@
+#clinic_form{
+    background: #a8d7ff;
+
+}
+#clinic_form label{
+    color: #124876;
+}
+#clinic_form  input[type=text] {
+    color: #124876;
+
+}
+
+#clinic_form placeholder{
+    background: #124876;
+    color: white;
+}
+#clinic_form button{
+    background: #124876;
+    color: white;
+}

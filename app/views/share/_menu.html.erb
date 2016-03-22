@@ -1,0 +1,11 @@
+<div id="menu" class="ui menu inverted no-print">
+  <%= link_to "Главная", root_path, class: 'item' %>
+
+  <div class="right menu">
+    <% if  current_user %>
+        <%= link_to "Выход (#{current_user.login})", log_out_path, class: 'item' %>
+    <% else %>
+        <%= link_to "Войти", log_in_path, class: 'item' %>
+    <% end %>
+  </div>
+</div>

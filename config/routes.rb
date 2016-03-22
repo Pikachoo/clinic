@@ -10,4 +10,6 @@ Rails.application.routes.draw do
 
   resources :user
   resources :session
+
+  resource :patient
 end

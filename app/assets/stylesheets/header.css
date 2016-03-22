@@ -1,0 +1,47 @@
+#header {
+    background: rgb(255, 255, 255);
+}
+
+.header_link {
+    color: #156ba7
+}
+
+
+.header_link:hover {
+    color: #156ba7;
+    text-decoration: none
+}
+
+#header .logo {
+    padding: 1em 2em;
+}
+
+#header .logo img {
+    width: 75px;
+    float: left;
+}
+
+#header .logo span {
+    display: inline-block;
+    font-size: 34px;
+    font-weight: bold;
+    padding: 48px 0 0 12px;}
+
+
+#header .contacts  {
+    width: 200px;
+    margin-left: -250px;
+    padding-top: 26px;
+    color:  #156ba7;
+}
+
+#header .contacts a {
+    color: #156ba7
+}
+
+#header .timetable {
+    margin-left: 15px;
+    padding-top: 26px;
+    color:  #156ba7;
+    width: 150px;
+}

@@ -1,15 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>HealthClinic</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <title>Поликлиника №7</title>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div id="general_container">
+  <%= render partial: "share/header" %>
+  <%= render partial: "share/menu" %>
 
-<%= yield %>
+  <script>
+    $(function () {
+      window.onresize = function () {
+        clinic.body.init();
+      };
+      clinic.body.init();
+    });
+  </script>
+
+  <%= yield %>
+
+
+  <%= render partial: "share/footer" %>
+</div>
 
 
 </body>

@@ -1,0 +1,16 @@
+#hr_for_footer {
+    color: #156ba7;
+    height: 2px;
+    border: none;
+    background-color: #156ba7;
+}
+#footer {
+    background: rgb(255, 255, 255);
+}
+#footer a, #footer a:hover, #footer p {
+    color: #156ba7
+}
+
+#footer .column {
+    padding: 18px 30px;
+}

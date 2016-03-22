@@ -7,7 +7,7 @@ class SessionController < ApplicationController
     puts json: user
     if user
       session[:user_id] = user.id
-      redirect_to root_url, :notice => "Вошли"
+      redirect_to patient_path, :notice => "Вошли"
 
     else
       flash[:error] = "Неправильный пароль и логин"
