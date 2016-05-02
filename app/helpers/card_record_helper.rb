@@ -1,0 +1,2 @@
+module CardRecordHelper
+end

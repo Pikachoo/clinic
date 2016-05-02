@@ -12,10 +12,12 @@
  *
  *= require_self
  *= require semantic-ui-style/2.1.6/semantic.min
- *= require style.css.erb
+ *= require style
  *= require header
  *= require footer
- *= require clinic_form
+ *= require segment.css
+ *= require doctor_menu
+ *= require cards
  */
 @font-face {
     font-family: 'Basic Icons';

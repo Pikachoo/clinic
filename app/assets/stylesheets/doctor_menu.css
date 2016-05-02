@@ -1,0 +1,25 @@
+.ui.vertical.menu img{
+    width: 25px;
+}
+.ui.vertical.menu {
+    background-color: rgb(0, 119, 150)
+}
+.ui.vertical.menu a{
+    color: white;
+}
+.ui.vertical.menu .item.first{
+    background: #0c556f;
+}
+
+.ui.vertical.menu .item{
+    background:  rgb(0, 112, 145);
+}
+
+.ui.page.grid {
+    padding: 0 !important;
+    margin: -1rem ;
+}
+
+#record{
+    width: 100%;
+}

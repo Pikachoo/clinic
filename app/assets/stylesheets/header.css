@@ -1,14 +1,15 @@
 #header {
     background: rgb(255, 255, 255);
+    width: 100%;
 }
 
 .header_link {
-    color: #156ba7
+    color: #0c556f
 }
 
 
 .header_link:hover {
-    color: #156ba7;
+    color: #0c556f;
     text-decoration: none
 }
 
@@ -23,25 +24,20 @@
 
 #header .logo span {
     display: inline-block;
-    font-size: 34px;
+    font-size: 29px;
     font-weight: bold;
     padding: 48px 0 0 12px;}
 
 
 #header .contacts  {
-    width: 200px;
-    margin-left: -250px;
-    padding-top: 26px;
-    color:  #156ba7;
+
+    color:  #0c556f;
 }
 
 #header .contacts a {
-    color: #156ba7
+    color: #0c556f
 }
 
 #header .timetable {
-    margin-left: 15px;
-    padding-top: 26px;
-    color:  #156ba7;
-    width: 150px;
+    color:  #0c556f;
 }

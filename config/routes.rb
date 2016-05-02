@@ -12,4 +12,24 @@ Rails.application.routes.draw do
   resources :session
 
   resource :patient
+  resource :card
+  resources :card_record
+
+  namespace :patient_card do
+    resources :medical_speciality do
+      resources :card_records
+    end
+  end
+  get 'show_timetable' => 'doctor#show_timetable'
+  get 'get_form_unplanned_patient' => 'doctor#get_form_unplanned_patient'
+
+
+  namespace :api, defaults: { format: :json }  do
+    resources :cards do
+      resources :medical_speciality, only: [] do
+        resources :card_records, only: [:index]
+      end
+    end
+    resources :card_records
+  end
 end

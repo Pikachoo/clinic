@@ -1,1 +1,17 @@
-Добро пожаловать, <%= @patient.name + ' ' + @patient.patronymic%>.
+
+  <div id="content">
+    <div class=" clinic_item ui segment ">
+      <p>Добро пожаловать, <%= @patient.name + ' ' + @patient.patronymic%>.</p>
+      <h3>ФИО</h3>
+      <p> <%= @patient.surname + ' ' + @patient.name + ' ' + @patient.patronymic%>.</p>
+
+      <h3>Дата рождения</h3>
+      <p> <%= @patient.birthdate %>.</p>
+      <h3>Место жительства</h3>
+      <% street = Street.find(@patient.street_id);%>
+      <p>  <%= StreetType.find(street.id).name + ' ' + street.name + ' дом №' + @patient.house.to_s + ', квартира №' + @patient.appartment.to_s%>.</p>
+
+    </div>
+
+  </div>
+

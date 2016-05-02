@@ -1,0 +1,22 @@
+<div id="content">
+
+  <% if @card_records.size == 0 %>
+
+      <div class="ui message red center compact" style="display: table; margin: 0 auto">
+        <%= content_tag :p, 'Записей нет.' %>
+      </div>
+
+  <% else %>
+      <h2 class="center"><%= @medical_speciality.name%></h2>
+      <div class="ui sixteen column page grid">
+        <div class=" column four wide ">
+          <%= render partial: 'menu'%>
+        </div>
+        <div class="column twelve wide card">
+            <%= render partial: "card_record", locals: {title: "Последняя запись от  #{@card_record.add_date}."}%>
+        </div>
+      </div>
+  <% end %>
+
+
+</div>

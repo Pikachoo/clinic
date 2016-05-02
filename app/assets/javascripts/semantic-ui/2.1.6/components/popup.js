@@ -1235,10 +1235,10 @@ $.fn.popup.settings = {
   // callback before element removed from dom
   onRemove     : function(){},
 
-  // callback before show animation
+  // callback before index animation
   onShow       : function(){},
 
-  // callback after show animation
+  // callback after index animation
   onVisible    : function(){},
 
   // callback before hide animation
@@ -1247,7 +1247,7 @@ $.fn.popup.settings = {
   // callback after hide animation
   onHidden     : function(){},
 
-  // when to show popup
+  // when to index popup
   on           : 'hover',
 
   // whether to add touchstart events when using hover
@@ -1292,7 +1292,7 @@ $.fn.popup.settings = {
   // automatically hide on scroll
   hideOnScroll : 'auto',
 
-  // hide other popups on show
+  // hide other popups on index
   exclusive    : false,
 
   // context to attach popups

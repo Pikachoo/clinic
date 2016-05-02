@@ -1,14 +1,15 @@
 #hr_for_footer {
-    color: #156ba7;
+    color: rgb(0, 112, 145);;
     height: 2px;
     border: none;
-    background-color: #156ba7;
+    background-color: rgb(0, 112, 145);;
 }
 #footer {
     background: rgb(255, 255, 255);
+    width: 100%;
 }
 #footer a, #footer a:hover, #footer p {
-    color: #156ba7
+    color: #0c556f
 }
 
 #footer .column {

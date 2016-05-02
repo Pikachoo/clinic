@@ -16,6 +16,7 @@ var clinic =
             var menu_height   = parseInt($('#menu').css('height'));
 
             $('#content').css('min-height', window_height - footer_height - header_height - menu_height);
+            $('#record').css('min-height', (window_height - footer_height - header_height - menu_height) * 0.7);
         }
     },
 
@@ -84,7 +85,12 @@ var clinic =
                 $(function() {
                     $('.ui.rating').rating();
                 });
+            },
+            sidebar: function() {
+                $(function () {
+                    $('.ui.sidebar').sidebar();
+                });
             }
-        }
+            }
     }
 };

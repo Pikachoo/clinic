@@ -257,7 +257,7 @@ $.fn.visibility = function(parameters) {
               settings.once           = true;
               settings.observeChanges = false;
 
-              // show when top visible
+              // index when top visible
               settings.onOnScreen = function() {
                 module.debug('Image on screen', element);
                 module.precache(src, function() {

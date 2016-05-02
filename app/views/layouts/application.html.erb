@@ -2,15 +2,16 @@
 <html>
 <head>
   <title>Поликлиника №7</title>
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
   <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
 </head>
 <body>
-<div id="general_container">
+<div id="container">
   <%= render partial: "share/header" %>
   <%= render partial: "share/menu" %>
+
 
   <script>
     $(function () {
@@ -25,6 +26,7 @@
 
 
   <%= render partial: "share/footer" %>
+
 </div>
 
 

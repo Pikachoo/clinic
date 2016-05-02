@@ -1,0 +1,27 @@
+.ui.segment{
+    background: rgba(185, 192, 198, 0.20);
+    width: 75%;
+    display: table;
+    margin: 0 auto;
+
+}
+
+.ui.segment p, h3, h4, h2{
+    color: #0c556f;
+}
+.ui.segment button{
+    background: rgb(0, 112, 145);;
+    color: white;
+}
+
+.ui.form .field label{
+    color: #0c556f;
+}
+.ui.segment .form .field input[type=text] {
+    color: #0c556f;
+
+}
+.ui.segment .form .field textarea {
+    color: #0c556f;
+
+}

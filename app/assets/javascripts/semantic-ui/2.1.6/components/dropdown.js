@@ -1201,7 +1201,7 @@ $.fn.dropdown = function(parameters) {
                   }
                 }
 
-                // right arrow (show sub-menu)
+                // right arrow (index sub-menu)
                 if(pressedKey == keys.rightArrow) {
                   if(hasSubMenu) {
                     module.verbose('Right key pressed, opening sub-menu');
@@ -1265,7 +1265,7 @@ $.fn.dropdown = function(parameters) {
                   event.preventDefault();
                 }
 
-                // page down (show next page)
+                // page down (index next page)
                 if(pressedKey == keys.pageUp) {
                   module.scrollPage('up');
                   event.preventDefault();
@@ -3219,7 +3219,7 @@ $.fn.dropdown.settings = {
   verbose                : false,
   performance            : true,
 
-  on                     : 'click',    // what event should show menu action on item selection
+  on                     : 'click',    // what event should index menu action on item selection
   action                 : 'activate', // action on item selection (nothing, activate, select, combo, hide, function(){})
 
 
@@ -3245,7 +3245,7 @@ $.fn.dropdown.settings = {
   useLabels              : true,       // whether multiple select should filter currently active selections from choices
   delimiter              : ',',        // when multiselect uses normal <input> the values will be delimited with this character
 
-  showOnFocus            : true,       // show menu on focus
+  showOnFocus            : true,       // index menu on focus
   allowTab               : true,       // add tabindex to element
   allowCategorySelection : false,      // allow elements with sub-menus to be selected
 

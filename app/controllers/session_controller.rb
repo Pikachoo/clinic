@@ -4,10 +4,14 @@ class SessionController < ApplicationController
 
   def create
     user = User.authenticate(params[:name], params[:password])
-    puts json: user
+
     if user
       session[:user_id] = user.id
-      redirect_to patient_path, :notice => "Вошли"
+      if user.is? 'doctor'
+        redirect_to show_timetable_path, :notice => "Вошли"
+      elsif user.is? 'patient'
+        redirect_to patient_path, :notice => "Вошли"
+      end
 
     else
       flash[:error] = "Неправильный пароль и логин"

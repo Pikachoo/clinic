@@ -850,10 +850,10 @@ $.fn.modal.settings = {
   // padding with edge of page
   padding    : 50,
 
-  // called before show animation
+  // called before index animation
   onShow     : function(){},
 
-  // called after show animation
+  // called after index animation
   onVisible  : function(){},
 
   // called before hide animation
