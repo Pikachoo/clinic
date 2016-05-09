@@ -33,13 +33,11 @@ Rails.application.routes.draw do
 
   namespace :internal_entry  do
     resource :doctor, only: [:show] do
-        resources :receptions , only: [:show, :index]
+        resources :receptions , only: [:show, :index, :new, :create]
         resource :card_record
         resources :cards
     end
   end
-
-  get 'get_form_unplanned_patient' => 'internal_entry/doctors#get_form_unplanned_patient'
 
 
 

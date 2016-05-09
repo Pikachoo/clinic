@@ -1,7 +1,9 @@
 class InternalEntry::CardRecordsController < ApplicationController
+  #TODO: set is_served into true after create
   def new
     @record = CardRecord.new
-    @card = Patient.find(params[:doctor_reception][:patient_id]).card
+    @patient = Patient.find(params[:doctor_reception][:patient_id])
+    @card = @patient.card
   end
 
   def create
@@ -9,6 +11,7 @@ class InternalEntry::CardRecordsController < ApplicationController
     @current_doctor = current_user.employee.doctor
     @card_record.attributes = {doctor_id: @current_doctor.id, medical_speciality_id: @current_doctor.medical_speciality_id, add_date: Date.today}
     # @card_record.save
+
   end
 
   def show

@@ -2,6 +2,7 @@
   <div class="ui segment">
 
     <% # TODO: change label for%>
+    <p>Пациент <b><%= @patient.get_initials%></b></p>
     <%= form_for @record, url: internal_entry_doctor_card_record_path, method: 'post', html: {class: 'ui form error success'} do |f| %>
         <%= f.hidden_field :card_id, value: @card.id%>
 

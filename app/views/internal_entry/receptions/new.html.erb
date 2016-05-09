@@ -1,0 +1,39 @@
+<div id="content">
+  <div class="ui segment">
+    <%= form_for @patient, url: internal_entry_doctor_receptions_path, method: 'post', html: {class: 'ui form error success'} do |f| %>
+        <% unless flash[:error].nil? %>
+            <div class="ui error message">
+              <% flash.each do |name, msg| %>
+                  <%= content_tag :p, msg %>
+              <% end %>
+            </div>
+        <% end %>
+        <% flash[:error] = nil %>
+        <div class="field">
+          <%= f.label 'surname', value: 'Фамилия' %>
+          <%= f.text_field 'surname', placeholder: "Фамилия"%>
+        </div>
+
+        <div class="field">
+          <%= f.label 'name', value: 'Имя' %>
+          <%= f.text_field :name, placeholder: "Имя", value: @patient.name%>
+        </div>
+
+
+
+        <div class="field">
+          <%= f.label 'patronymic', value: 'Отчество' %>
+          <%= f.text_field 'patronymic', placeholder: "Отчество"%>
+        </div>
+        <div class="field">
+          <%= f.label 'birthdate', value: 'Дата рождения ' %>
+          <%= f.date_field 'birthdate'%>
+        </div>
+        <%= f.submit  class: 'ui button', value: 'Сделать запись' %>
+    <% end %>
+
+
+  </div>
+
+
+</div>

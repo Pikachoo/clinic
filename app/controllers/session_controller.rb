@@ -11,6 +11,8 @@ class SessionController < ApplicationController
         redirect_to internal_entry_doctor_path, :notice => "Вошли"
       elsif user.is? 'patient'
         redirect_to external_entry_patient_path, :notice => "Вошли"
+      else
+        redirect_to root_path, :notice => "Вошли"
       end
 
     else

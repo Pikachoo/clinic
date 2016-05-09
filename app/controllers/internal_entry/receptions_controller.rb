@@ -9,6 +9,24 @@ class InternalEntry::ReceptionsController < ApplicationController
     @reception = @doctor_receptions.find(params[:id])
   end
 
+  def new
+    @patient = Patient.new
+  end
+
+  def create
+    @patient = Patient.find_by(patient_params)
+    @record = CardRecord.new
+    if @patient
+      @card = @patient.card
+      render 'internal_entry/card_records/new'
+    else
+      flash[:error] = 'Нет карточки. Проверьте правильность данных.'
+      @patient = Patient.new(patient_params)
+      render 'internal_entry/receptions/new'
+    end
+
+  end
+
   private
 
   def get_timetable
@@ -19,6 +37,10 @@ class InternalEntry::ReceptionsController < ApplicationController
   end
   def get_next_reception
     @reception = @doctor_receptions.where(is_served: false).order(:date_time).first
+  end
+  def patient_params
+    params.require(:patient).permit(:name,:surname, :birthdate, :patronymic)
+
   end
 
 end
