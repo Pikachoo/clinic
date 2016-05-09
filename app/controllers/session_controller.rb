@@ -8,9 +8,9 @@ class SessionController < ApplicationController
     if user
       session[:user_id] = user.id
       if user.is? 'doctor'
-        redirect_to show_timetable_path, :notice => "Вошли"
+        redirect_to internal_entry_doctor_path, :notice => "Вошли"
       elsif user.is? 'patient'
-        redirect_to patient_path, :notice => "Вошли"
+        redirect_to external_entry_patient_path, :notice => "Вошли"
       end
 
     else

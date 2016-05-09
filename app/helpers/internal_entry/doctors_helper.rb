@@ -1,0 +1,2 @@
+module InternalEntry::DoctorsHelper
+end

@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   belongs_to :role
+  has_one :employee
+  has_one :patient
   bad_attribute_names :hash
 
   attr_accessor :password, :error_message

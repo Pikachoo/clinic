@@ -1,0 +1,17 @@
+
+<div id="content">
+  <div class=" clinic_item ui segment ">
+    <p>Добро пожаловать, <%= @employee.name + ' ' + @employee.patronymic%>.</p>
+    <h3>ФИО</h3>
+    <p> <%= @employee.surname + ' ' + @employee.name + ' ' + @employee.patronymic%>.</p>
+
+    <h3>Дата рождения</h3>
+    <p> <%= @employee.birthdate %>.</p>
+    <h3>Место жительства</h3>
+    <% street = Street.find(@employee.street_id);%>
+    <p>  <%= StreetType.find(street.id).name + ' ' + street.name + ' дом №' + @employee.house.to_s + ', квартира №' + @employee.appartment.to_s%>.</p>
+
+  </div>
+
+</div>
+

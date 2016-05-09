@@ -1,0 +1,29 @@
+
+
+  <div id="content">
+
+    <div   class="ui sixteen column page grid">
+      <div class=" column four wide ">
+        <div class="ui labeled vertical fluid  menu">
+          <div class="item  bold first">
+            <a>Врачи</a>
+          </div>
+          <% @medical_specialities.each do |medical_speciality| %>
+              <%= link_to medical_speciality.name , external_entry_patient_card_medical_speciality_records_path(medical_speciality.id), class: 'item'%>
+          <%end%>
+        </div>
+      </div>
+      <div class="column twelve wide card">
+        <div id="record" class="ui segment  ">
+          <h3>Карточка №<%= @card.id %></h3>
+          <p>Последний запись: <%=@last_card_record.add_date%></p>
+          <p>Сделана: <%= MedicalSpeciality.find(@last_card_record.medical_speciality_id).name%>
+                      <%= @doctor.surname + " " + @doctor.name.chars.first + ". " + @doctor.patronymic.chars.first + ". "%> </p>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+

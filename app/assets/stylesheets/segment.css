@@ -9,7 +9,7 @@
 .ui.segment p, h3, h4, h2{
     color: #0c556f;
 }
-.ui.segment button{
+.ui.segment .button{
     background: rgb(0, 112, 145);;
     color: white;
 }

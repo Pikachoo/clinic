@@ -1,0 +1,2 @@
+module InternalEntry::CardsHelper
+end

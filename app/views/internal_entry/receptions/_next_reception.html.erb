@@ -1,0 +1,24 @@
+<div id="record" class="ui segment  ">
+  <h3>Добро пожаловать в личный кабинет.</h3>
+
+  <p><b>День: </b><%= Date.today.strftime('%d.%m.%Y') %></p>
+
+  <% if @reception %>
+
+      <p><b>Следующий пациент: </b> <%= @reception.patient.get_initials %></p>
+      <p><b>Время: </b><%= @reception.date_time.strftime('%H:%M') %></p>
+
+      <%= form_for @reception, url: new_internal_entry_doctor_card_record_path, method: 'get', html: {class: 'ui form error success'} do |f| %>
+          <%= f.hidden_field 'patient_id', value: @reception.patient_id %>
+          <%= f.submit  class: 'ui button', value: 'Принять' %>
+      <% end %>
+
+  <% else %>
+
+      <div class="ui message red compact">
+        <%= content_tag :p, 'Пациентов на сегодня нет.' %>
+      </div>
+
+  <% end %>
+
+</div>

@@ -1,6 +1,7 @@
 class Ability
   include CanCan::Ability
 
+  # TODO: add limit access to controller
   def initialize(user)
     # Define abilities for the passed in user here. For example:
     #
@@ -10,7 +11,7 @@ class Ability
 
     if user.is? 'doctor'
       can :manage, CardRecord
-      can :read, DoctorTimetable, employee_id: employee.id
+      can :read, DoctorReception, employee_id: employee.id
     end
 
     if user.is? 'patient'

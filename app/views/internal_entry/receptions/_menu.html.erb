@@ -1,0 +1,18 @@
+<div class="ui labeled vertical  fluid  menu">
+  <div class="item  bold first">
+    <a>Время</a>
+  </div>
+  <% number_receptions = (@doctor_shedule.time_end - @doctor_shedule.time_start) / 60 / 15
+     (number_receptions + 1).to_i.times do |time| %>
+
+      <% @doctor_receptions.each do |reception| %>
+          <% reception_time = (@doctor_shedule.time_start + time * 15 * 60).strftime('%H:%M') %>
+          <% if reception.date_time.strftime('%H:%M') == reception_time %>
+              <%= link_to reception_time, internal_entry_doctor_reception_path(reception.id), class: 'item' %>
+          <% else %>
+              <a class="item disabled"><%= reception_time %></a>
+          <% end %>
+      <% end %>
+  <% end %>
+
+</div>

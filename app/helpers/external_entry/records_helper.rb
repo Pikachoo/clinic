@@ -1,0 +1,2 @@
+module ExternalEntry::RecordsHelper
+end

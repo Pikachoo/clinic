@@ -1,0 +1,26 @@
+<div id="content">
+  <div class="ui segment">
+
+    <% # TODO: change label for%>
+    <%= form_for @record, url: internal_entry_doctor_card_record_path, method: 'post', html: {class: 'ui form error success'} do |f| %>
+        <%= f.hidden_field :card_id, value: @card.id%>
+
+        <div class="field">
+          <%= f.label 'symptoms', value: 'Жалобы' %>
+          <%= f.text_area :symptoms, placeholder: "Жалобы"%>
+        </div>
+
+        <div class="field">
+          <%= f.label 'diagnosis', value: 'Диагноз' %>
+          <%= f.text_area 'diagnosis', placeholder: "Диагноз"%>
+        </div>
+
+        <div class="field">
+          <%= f.label 'treatment', value: 'Рекомендации' %>
+          <%= f.text_area 'treatment', placeholder: "Рекомендации"%>
+        </div>
+        <%= f.submit  class: 'ui button', value: 'Записать' %>
+    <% end %>
+  </div>
+
+</div>

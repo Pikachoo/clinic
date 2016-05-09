@@ -1,0 +1,8 @@
+<div class="ui labeled vertical fluid  menu">
+  <div class="item  bold first">
+    <a>Дата</a>
+  </div>
+  <% @card_records.each do |card_record| %>
+      <%= link_to card_record.add_date, external_entry_patient_card_medical_speciality_record_path(id: card_record.id), onclick: "html_card_record(#{card_record.id}); return false;", class:"item" %>
+  <% end %>
+</div>
