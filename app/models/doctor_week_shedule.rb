@@ -1,10 +1,12 @@
 class DoctorWeekShedule < ActiveRecord::Base
 
+  belongs_to :doctor
+
   def self.get_number_of_day(day_name)
     number_day = 0
     if day_name == 'Пн'
       number_day = 1
-    elsif day_name == 'ВТ'
+    elsif day_name == 'Втds'
       number_day = 2
     elsif day_name == 'Ср'
       number_day = 3
@@ -16,14 +18,16 @@ class DoctorWeekShedule < ActiveRecord::Base
     number_day
   end
 
-  def self.get_today_timetable(doctor_id)
+  def self.get_today_timetable(doctor_shedules)
     today = Date.today
-    doctor_shedules = DoctorWeekShedule.where(doctor_id: doctor_id)
+
     doctor_shedules.each do |doctor_shedule|
       if get_number_of_day(doctor_shedule.weekday) == today.wday
         return doctor_shedule
       end
     end
+
+    return nil
   end
 
 end

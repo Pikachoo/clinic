@@ -1,10 +1,20 @@
 <div id="content">
-  <div class="ui sixteen column page grid">
-    <div class=" column four wide ">
-      <%= render partial: 'menu' %>
-    </div>
-    <div class="column twelve wide card">
-      <%= render partial: 'next_reception' %>
-    </div>
-  </div>
+  <% if flash[:notice] %>
+      <div class="ui success center compact message" style="display: table; margin: 0 auto">
+        <% flash.each do |name, msg| %>
+            <%= content_tag :p, msg %>
+        <% end %>
+      </div>
+      <% flash[:notice] = nil %>
+  <% else %>
+      <div class="ui sixteen column page grid">
+        <div class=" column four wide ">
+          <%= render partial: 'menu' %>
+        </div>
+        <div class="column twelve wide card">
+          <%= render partial: 'next_reception' %>
+        </div>
+      </div>
+  <% end %>
+
 </div>

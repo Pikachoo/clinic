@@ -1,0 +1,26 @@
+<div id="content">
+  <div class=" clinic_item ui segment ">
+    <table class="sortable ui table striped">
+      <tr>
+        <td>№</td>
+        <td>Ф.И.О</td>
+
+      </tr>
+      <% @patients.each do |patient| %>
+          <tr>
+            <td>
+              <%= patient.id %>
+            </td>
+            <td>
+              <%= patient.get_initials %>
+            </td>
+
+          </tr>
+      <% end %>
+    </table>
+  </div>
+
+</div>
+
+
+<%= render partial: "paginator/paginator", locals: {pageCount: @patients.total_pages, currentPage: params[:patients_page].to_i, maxPerPageCount: 15, path: "cards", param_id: 'patients_page'} %>

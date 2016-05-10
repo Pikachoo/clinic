@@ -18,6 +18,11 @@ class Ability
       can :manage, Patient, user_id: user.id
       can :read, Card, patient_id: patient.id
     end
+
+    if user.is? 'admin'
+      can :manage, Card
+      can :manage, User
+    end
     #
     # The first argument to `can` is the action you are giving the user
     # permission to do.

@@ -35,8 +35,8 @@ Rails.application.routes.draw do
     resource :doctor, only: [:show] do
         resources :receptions , only: [:show, :index, :new, :create]
         resource :card_record
-        resources :cards
     end
+    resources :cards
   end
 
 

@@ -1,17 +1,22 @@
 <div id="menu" class="ui menu inverted no-print">
   <%= link_to "Главная", root_path, class: 'item' %>
+
   <% if current_user %>
-      <% if current_user.is? 'doctor' %>
+      <% if current_user.is?('doctor') || current_user.is?('admin')%>
           <%= link_to "Личная страница", internal_entry_doctor_path, class: 'item' %>
       <% elsif current_user.is? 'patient' %>
           <%= link_to "Личная страница", external_entry_patient_path, class: 'item' %>
       <% end %>
   <% end %>
-  <%= link_to "Карточка", external_entry_patient_card_path, class: 'item' if can? :read, Card %>
+
+  <%= link_to "Карточка", external_entry_patient_card_path, class: 'item' if can?(:read, Card) && cannot?(:manage, Card) %>
+
   <%= link_to "Расписание", internal_entry_doctor_receptions_path, class: 'item' if can? :read, DoctorReception %>
   <% if current_user %>
       <%= link_to "Принять внепланового пациента", new_internal_entry_doctor_reception_path, class: 'item' if current_user.is? 'doctor' %>
   <% end %>
+
+  <%= link_to "Карточки", internal_entry_cards_path, class: 'item' if can? :manage, Card%>
   <div class="right menu">
     <% if current_user %>
         <%= link_to "Выход (#{current_user.login})", log_out_path, class: 'item' %>

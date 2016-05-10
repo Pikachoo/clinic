@@ -30,10 +30,17 @@ class InternalEntry::ReceptionsController < ApplicationController
   private
 
   def get_timetable
+    flash[:notice] = nil
+
     @current_employee = current_user.employee
     @current_doctor = @current_employee.doctor
     @doctor_receptions = @current_doctor.doctor_receptions.where("DATE(date_time) = '" + Date.today.to_s + "'")
-    @doctor_shedule = DoctorWeekShedule.get_today_timetable(@current_employee.id)
+    @doctor_shedule = DoctorWeekShedule.get_today_timetable(@current_doctor.doctor_week_shedule)
+
+    unless @doctor_shedule
+      flash[:notice] = 'Сегодня выходной.'
+    end
+
   end
   def get_next_reception
     @reception = @doctor_receptions.where(is_served: false).order(:date_time).first
