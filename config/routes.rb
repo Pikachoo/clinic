@@ -37,6 +37,9 @@ Rails.application.routes.draw do
         resource :card_record
     end
     resources :cards
+    resources :patients
+    resource  :doctor_service
+    post 'show_diagnoses' => 'doctor_services#show_diagnoses'
   end
 
 

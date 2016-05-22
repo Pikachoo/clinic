@@ -10,9 +10,8 @@ class User < ActiveRecord::Base
 
   validates_confirmation_of :password
   validates_presence_of :password, :on => :create
-  validates_presence_of :name
-  validates_uniqueness_of :name
-
+  validates_presence_of :login
+  validates_uniqueness_of :login
 
 
   def self.authenticate(name, password)
@@ -36,7 +35,44 @@ class User < ActiveRecord::Base
     self.password = SecureRandom.hex(4)
   end
 
+  def save_first_time
+    self.generate_password
+    if self.valid?
+      self.save
+    else
+      unless self.errors[:login].empty?
+        self.error_message =  ['Данный пользователь уже существует.']
+      end
+      user = User.find_by(login: self.login)
+      user.error_message = self.error_message
+      return user
+    end
+    self
+  end
 
+  def self.create_user(human_id, role_name)
+
+    if role_name == 'doctor' || role_name == 'admin'
+      human = Employee.find(human_id)
+    else
+      human = Patient.find(human_id)
+    end
+
+    if human
+      user = User.new(login: human.indetification_number, role_id: Role.find_by(name: role_name).id)
+      user_find = User.find_by(login: human.indetification_number)
+      if !user_find
+        user = user.save_first_time
+      else
+        user = user_find
+      end
+
+      human.user_id = user.id
+      human.save
+
+      user
+    end
+  end
 
   def is?(requested_role)
     if self.role

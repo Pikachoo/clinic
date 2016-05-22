@@ -1,0 +1,44 @@
+<div id="content">
+  <div class=" clinic_item ui segment ">
+    <%= form_for @illness, url: internal_entry_show_diagnoses_path, method: 'post', html: {class: 'ui form error success', enctype: 'multipart'} do |f| %>
+        <% unless flash[:error].nil? %>
+            <div class="ui error message">
+              <% flash.each do |name, msg| %>
+                  <%= content_tag :p, msg %>
+              <% end %>
+            </div>
+        <% end %>
+        <% flash[:error] = nil %>
+
+        <div class='ui field'>
+
+
+          <div class="dropdown example">
+            <h4 class="ui header">Симптомы</h4>
+
+            <div class="ui fluid search dropdown selection multiple" tabindex="0">
+              <input name="symptoms" type="hidden">
+
+              <i class="dropdown icon"></i>
+              <input class="search" autocomplete="off" tabindex="0" style="width: 1.0714em;">
+
+              <div class="default text">Симптомы</div>
+              <div class="menu transition hidden" tabindex="-1">
+                <% Symptom.all.each do |symptom| %>
+                    <div class="item" data-value="<%= symptom.id %>"><%= symptom.name %></div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ui field">
+          <%= f.submit class: 'ui button', value: 'Посмотреть диагнозы' %>
+        </div>
+
+
+    <% end %>
+  </div>
+</div>
+<script>
+  clinic.semantic.init.dropdown();
+</script>

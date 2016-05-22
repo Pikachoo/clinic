@@ -1,0 +1,52 @@
+<div id="content">
+  <div class=" clinic_item ui segment ">
+    <% unless flash[:success].nil? %>
+        <div class="ui success message">
+          <% flash.each do |name, msg| %>
+              <%= content_tag :p, msg %>
+          <% end %>
+        </div>
+    <% end %>
+    <% flash[:success] = nil %>
+    <table class="sortable ui table striped">
+      <tr>
+        <td>№</td>
+        <td>Ф.И.О</td>
+        <td>Изменение</td>
+        <td>Удаление</td>
+        <td>Карточки</td>
+      </tr>
+
+      <% @patients.each do |patient| %>
+          <tr>
+            <td>
+              <%= patient.id %>
+            </td>
+            <td>
+              <%= patient.get_initials %>
+            </td>
+            <td>
+              <%= link_to 'Изменить', '#' %>
+            </td>
+            <td>
+              <%= link_to 'Удалить', '#' %>
+            </td>
+            <td>
+              <% if patient.card %>
+                  <%= link_to 'Карточка', internal_entry_card_path(patient.card.id) %>
+              <% else %>
+                  <%= link_to 'Создать карточку', new_internal_entry_card_path(patient: patient) %>
+              <% end %>
+            </td>
+
+
+          </tr>
+      <% end %>
+    </table>
+    <%= link_to 'Создать', new_internal_entry_patient_path, class: 'ui link_like_button button' %>
+  </div>
+
+</div>
+
+
+<%= render partial: "paginator/paginator", locals: {pageCount: @patients.total_pages, currentPage: params[:patients_page].to_i, maxPerPageCount: 15, path: "cards", param_id: 'patients_page'} %>

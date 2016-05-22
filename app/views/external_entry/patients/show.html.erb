@@ -1,17 +1,44 @@
+<div id="content">
+  <div class=" clinic_item ui segment ">
+    <p>Добро пожаловать, <%= @patient.name + ' ' + @patient.patronymic %>.</p>
 
-  <div id="content">
-    <div class=" clinic_item ui segment ">
-      <p>Добро пожаловать, <%= @patient.name + ' ' + @patient.patronymic%>.</p>
-      <h3>ФИО</h3>
-      <p> <%= @patient.surname + ' ' + @patient.name + ' ' + @patient.patronymic%>.</p>
+    <h3>ФИО</h3>
 
-      <h3>Дата рождения</h3>
-      <p> <%= @patient.birthdate %>.</p>
-      <h3>Место жительства</h3>
-      <% street = Street.find(@patient.street_id);%>
-      <p>  <%= StreetType.find(street.id).name + ' ' + street.name + ' дом №' + @patient.house.to_s + ', квартира №' + @patient.appartment.to_s%>.</p>
+    <p> <%= @patient.surname + ' ' + @patient.name + ' ' + @patient.patronymic %>.</p>
 
-    </div>
+    <h3>Дата рождения</h3>
+
+    <p> <%= @patient.birthdate %>.</p>
+
+    <h3>Место жительства</h3>
+    <% street = Street.find(@patient.street_id); %>
+    <p>  <%= StreetType.find(street.id).name + ' ' + street.name + ' дом №' + @patient.house.to_s + ', квартира №' + @patient.appartment.to_s %>
+      .</p>
+
+    <h3>Общие мед. параметры</h3>
+
+    <table class="ui blue table center">
+      <tr>
+        <th>Вес</th>
+        <th>Рост</th>
+        <th>Группа крови</th>
+        <th>Давление</th>
+        <th>Пульс</th>
+
+      </tr>
+      <tr>
+        <td><%= @patient.card.weight %></td>
+        <td><%= @patient.card.height %></td>
+        <td><%= @patient.card.blood_type %></td>
+        <td><%= @patient.card.bp_s.to_s + '/' + @patient.card.bp_d.to_s %></td>
+        <td><%= @patient.card.pulse %></td>
+      </tr>
+
+
+    </table>
+
 
   </div>
+
+</div>
 

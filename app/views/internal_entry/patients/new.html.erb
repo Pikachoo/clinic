@@ -1,0 +1,102 @@
+<div id="content">
+  <div class=" clinic_item ui segment ">
+    <%= form_for @patient, url: internal_entry_patients_path, method: 'post', html: {class: 'ui form error success'} do |f| %>
+        <% unless flash[:error].nil? %>
+            <div class="ui error message">
+              <% flash.each do |name, msg| %>
+                  <%= content_tag :p, msg %>
+              <% end %>
+            </div>
+        <% end %>
+        <% flash[:error] = nil %>
+        <div class="ui sixteen column page grid">
+          <div class=" column eight wide ">
+            <h3>Ф.И.О</h3>
+
+            <div class="field">
+              <%= f.label 'surname', value: 'Фамилия' %>
+              <%= f.text_field 'surname', placeholder: "Фамилия" %>
+            </div>
+
+            <div class="field">
+              <%= f.label 'name', value: 'Имя' %>
+              <%= f.text_field :name, placeholder: "Имя", value: @patient.name %>
+            </div>
+
+            <div class="field">
+              <%= f.label 'patronymic', value: 'Отчество' %>
+              <%= f.text_field 'patronymic', placeholder: "Отчество" %>
+            </div>
+
+            <div class="field">
+              <%= f.label 'birthdate', value: 'Дата рождения' %>
+              <%= f.date_field 'birthdate' %>
+            </div>
+
+          </div>
+          <div class="column eight wide card">
+            <h3>Паспортные данные</h3>
+
+            <div class="field">
+              <%= f.label 'passport_series_id', value: 'Серия паспорта' %>
+              <%= f.collection_select(:passport_series_id, PassportSeries.all, :id, :name, {include_blank: true}) %>
+            </div>
+            <div class="field">
+              <%= f.label 'passport_number', value: 'Номер паспорта' %>
+              <%= f.number_field 'passport_number' %>
+            </div>
+            <div class="field">
+              <%= f.label 'indetification_number', value: 'Индетификационный номер' %>
+              <%= f.text_field 'indetification_number' %>
+            </div>
+
+          </div>
+        </div>
+        <div class="ui sixteen column page grid">
+          <div class=" column eight wide ">
+            <h3>Место проживания</h3>
+
+            <div class="field">
+              <%= f.label 'street_id', value: 'Улица' %>
+              <%= f.collection_select(:street_id, Street.all, :id, :get_name_with_type, {include_blank: true}) %>
+            </div>
+            <div class="field">
+              <%= f.label 'house', value: 'Дом №' %>
+              <%= f.number_field 'house' %>
+            </div>
+            <div class="field">
+              <%= f.label 'block', value: 'Корпус №' %>
+              <%= f.number_field 'block' %>
+            </div>
+            <div class="field">
+              <%= f.label 'appartment', value: 'Квартира №' %>
+              <%= f.number_field 'appartment' %>
+            </div>
+          </div>
+          <div class="column eight wide card">
+            <h3>Контактная информация</h3>
+
+            <div class="field">
+              <%= f.label 'mobile_phone', value: 'Мобильный телефон' %>
+              <%= f.text_field 'mobile_phone' %>
+            </div>
+            <div class="field">
+              <%= f.label 'home_phone', value: 'Домашний телефон' %>
+              <%= f.text_field 'home_phone' %>
+            </div>
+            <div class="field">
+              <%= f.label 'email', value: 'Email' %>
+              <%= f.text_field 'email' %>
+            </div>
+
+          </div>
+        </div>
+
+
+
+
+        <%= f.submit class: 'ui button right', value: 'Сделать запись' %>
+    <% end %>
+  </div>
+
+</div>

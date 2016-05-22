@@ -1,5 +1,6 @@
 <div id="menu" class="ui menu inverted no-print">
   <%= link_to "Главная", root_path, class: 'item' %>
+  <%= link_to "Услуги", root_path, class: 'item' %>
 
   <% if current_user %>
       <% if current_user.is?('doctor') || current_user.is?('admin')%>
@@ -14,9 +15,11 @@
   <%= link_to "Расписание", internal_entry_doctor_receptions_path, class: 'item' if can? :read, DoctorReception %>
   <% if current_user %>
       <%= link_to "Принять внепланового пациента", new_internal_entry_doctor_reception_path, class: 'item' if current_user.is? 'doctor' %>
-  <% end %>
+      <%= link_to "Помощник врача", internal_entry_doctor_service_path, class: 'item' if current_user.is? 'doctor' %>
 
-  <%= link_to "Карточки", internal_entry_cards_path, class: 'item' if can? :manage, Card%>
+<% end %>
+
+  <%= link_to "Пациенты", internal_entry_patients_path, class: 'item' if can? :manage, Card%>
   <div class="right menu">
     <% if current_user %>
         <%= link_to "Выход (#{current_user.login})", log_out_path, class: 'item' %>

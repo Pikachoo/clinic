@@ -1,7 +1,19 @@
 class InternalEntry::CardsController < ApplicationController
-  #TODO: Show cards and their records
-  def index
-    @cards = Card.all
-    @patients = Patient.all.page(params[:patients_page].to_i)
+  def new
+
+    @patient = Patient.find(params[:patient])
+    @card = Card.new
+  end
+
+  def create
+    @card = Card.create(card_params)
+
+  end
+  def show
+
+  end
+  private
+  def card_params
+    params.require(:card).permit(:height,:weight, :blood_type, :bp_s, :bp_d, :pulse, :patient_id)
   end
 end

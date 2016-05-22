@@ -1,0 +1,54 @@
+<div id="content">
+  <div class=" clinic_item ui segment ">
+    <%= form_for @card, url: internal_entry_cards_path, method: 'post', html: {class: 'ui form error success'} do |f| %>
+        <% unless flash[:error].nil? %>
+            <div class="ui error message">
+              <% flash.each do |name, msg| %>
+                  <%= content_tag :p, msg %>
+              <% end %>
+            </div>
+        <% end %>
+        <% flash[:error] = nil %>
+        <%=  f.hidden_field :patient_id, value: @patient.id%>
+        <div class="ui sixteen column page grid">
+          <div class=" column eight wide ">
+
+            <div class="field compact">
+              <%= f.label 'height', value: 'Рост' %>
+              <%= f.text_field 'height', placeholder: "Рост", class: 'compact' %>
+            </div>
+
+            <div class="field">
+              <%= f.label 'weight', value: 'Вес' %>
+              <%= f.text_field :weight, placeholder: "Вес" %>
+            </div>
+
+
+            <div class="field">
+              <%= f.label 'blood_type', value: 'Группа крови' %>
+              <%= f.text_field 'blood_type', placeholder: "Группа крови" %>
+            </div>
+            <div class="field">
+              <%= f.submit class: 'ui button right', value: 'Сделать карточку' %>
+            </div>
+
+          </div>
+          <div class="column eight wide card">
+            <div class="field">
+              <%= f.label 'bp_s', value: 'САД' %>
+              <%= f.number_field 'bp_s', placeholder: "САД" %>
+            </div>
+
+            <div class="field">
+              <%= f.label 'bp_d', value: 'ДАД' %>
+              <%= f.number_field 'bp_d', placeholder: "ДАД" %>
+            </div>
+            <div class="field">
+              <%= f.label 'pulse', value: 'Пульс' %>
+              <%= f.number_field 'pulse', placeholder: "Пульс" %>
+            </div>
+          </div>
+        </div>
+    <% end %>
+  </div>
+</div>

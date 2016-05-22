@@ -1,1 +1,1 @@
-clinic.semantic.init.dropdown();
+//clinic.semantic.init.dropdown();

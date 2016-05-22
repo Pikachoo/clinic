@@ -1,0 +1,30 @@
+<div id="content">
+  <div class=" clinic_item ui segment ">
+
+
+    <table class="sortable ui table striped">
+      <tr>
+        <td>Симптомы</td>
+        <td>Болезнь</td>
+        <td>Вероятность, %</td>
+      </tr>
+
+      <% @diagnoses.each do |diagnosis| %>
+          <tr>
+            <td>
+              <%puts json: Symptom.find(IllnessSymptom.where(illness_id: diagnosis.id).collect{|illness| illness.symptom_id}).collect{|symptom| symptom.name}.join(', ') %>
+              <%= Symptom.find(IllnessSymptom.where(illness_id: diagnosis.id).collect{|illness| illness.symptom_id}).collect{|symptom| symptom.name}.join (', ')%>
+            </td>
+            <td>
+              <%= diagnosis.name %>
+            </td>
+            <td>
+              <%= 55 + Random.rand(15..25) %>
+            </td>
+
+          </tr>
+      <% end %>
+    </table>
+
+  </div>
+</div>

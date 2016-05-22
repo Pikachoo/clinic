@@ -6,7 +6,7 @@ class DoctorWeekShedule < ActiveRecord::Base
     number_day = 0
     if day_name == 'Пн'
       number_day = 1
-    elsif day_name == 'Втds'
+    elsif day_name == 'Вт'
       number_day = 2
     elsif day_name == 'Ср'
       number_day = 3

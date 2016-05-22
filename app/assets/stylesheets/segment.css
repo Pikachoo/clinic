@@ -9,9 +9,34 @@
 .ui.segment p, h3, h4, h2{
     color: #0c556f;
 }
-.ui.segment .button{
+.ui.segment button{
     background: rgb(0, 112, 145);;
     color: white;
+}
+
+.ui.segment button:hover{
+    background: rgba(0, 112, 145, .3);;
+    color:  #0c556f;
+}
+
+.ui.segment input[type=submit]{
+    background: rgb(0, 112, 145);;
+    color: white;
+}
+
+.ui.segment input[type=submit]:hover{
+    background: rgba(0, 112, 145, .3);;
+    color:  #0c556f;
+}
+
+.ui.segment .link_like_button {
+    background: rgb(0, 112, 145);;
+    color: white;
+}
+
+.ui.segment .link_like_button:hover{
+    background: rgba(0, 112, 145, .3);;
+    color:  #0c556f;
 }
 
 .ui.form .field label{
